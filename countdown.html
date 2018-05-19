@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="css/base.css" />
+      <title>倒计时</title>
+      <style type="text/css">
+        .box{
+          width: 500px;
+          margin: 0 auto;
+          padding: 100px 0 0 0;
+        }
+        .title{
+          text-align: center;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="box">
+        <h1 class="title">倒计时</h1>
+        <p id="day" class="fl"></p>
+        <p class="fl">天</p>
+        <p id="hour" class="fl"></p>
+        <p class="fl">时</p>
+        <p id="minute" class="fl"></p>
+        <p class="fl">分</p>
+        <p id="second" class="fl"></p>
+        <p class="fl">秒</p>
+      </div>
+      <script type="text/javascript">
+      console.time("time");
+      function getInterval(start,end) {
+        var interval,day,hour,minute,second;
+        interval = end - start;
+        interval /= 1000;
+        day = Math.floor(interval / 60 /60 /24);
+        hour = Math.floor(interval / 60 /60 % 24);
+        minute = Math.floor(interval /60 % 24);
+        second = Math.floor(interval % 60);
+        var arr = [day, hour, minute, second];
+        /*arr.forEach(function (item) {
+          item = item < 10 ? '0' + item : item;
+        })*/
+        return {
+          day: day,
+          hour: hour,
+          minute: minute,
+          second: second
+        }
+      }
+      setInterval(countdown,1000);
+      countdown();
+      function countdown() {
+        var Day = document.getElementById("day");
+        var Hour = document.getElementById("hour");
+        var Minute = document.getElementById("minute");
+        var Second = document.getElementById("second");
+        var start = new Date();
+        var end = new Date("2018-02-10 00:00:00");
+        var time = getInterval(start,end);
+        Day.innerText = time.day;
+        Hour.innerText = time.hour;
+        Minute.innerText = time.minute;
+        Second.innerText = time.second;
+      }
+      console.timeEnd("time");
+      console.log(navigator.userAgent);
+      //自执行函数
+      var n = 3,m = 5;
+      (function fn(n,m) {
+        //console.log("自执行函数");
+        var t = n + m;
+        console.log(t);
+      })(n,m)
+      </script>
+    </body>
+</html>

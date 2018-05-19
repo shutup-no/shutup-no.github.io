@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" href="css/base.css" />
+  <title>test</title>
+</head>
+<body>
+  <!-- 设置输入框的输入值 -->
+  <input type="text" value="" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="text" name="" id="" /><br>
+  <input type="button" value="按钮" id="btn" />
+  <!-- 全选 -->
+  <div id="table">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="j_cbAll" />
+          </th>
+          <th>商品</th>
+          <th>价格</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>手机</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>名表</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>衣服</td>
+          <td>200</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>鞋子</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" id="" />
+          </td>
+          <td>电脑</td>
+          <td>2000</td>
+        </tr>
+      </tbody>
+    </table>
+    <input type="checkbox" name="" id="" />
+  </div>
+  <script type="text/javascript">
+  /*var inputs = document.getElementsByTagName('input');
+  var btn = document.getElementById('btn');
+  btn.onclick = function () {
+    var i = 0,len = inputs.length;
+    for (; i < len; i++) {
+      var input = inputs[i];
+      if (input.type === 'text') {
+        input.value = i + 1;
+      };
+    };
+  };*/
+  //全选
+  var j_cbAll = document.getElementById('j_cbAll');
+  j_cbAll.onclick = function () {
+    var checkboxs = document.querySelectorAll('#tbody input[type="checkbox"]');
+    var i = 0,len = checkboxs.length;
+    for (; i<len; i++) {
+      var checkbox = checkboxs[i];
+      checkbox.checked = j_cbAll.checked;
+    }
+  };
+  </script>
+</body>
+</html>
